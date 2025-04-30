@@ -1,15 +1,8 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
-
-// ✅ ADD THIS:
-const repoName = 'whistle-site'; 
+import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()]
-  },
-
   output: 'static',
-  base: `/${repoName}/`,
+  base: '/whistle-site/',
+  integrations: [tailwind()], 
 });

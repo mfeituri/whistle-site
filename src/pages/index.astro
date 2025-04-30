@@ -1,26 +1,28 @@
 ---
 import "../styles/global.css";
 
+const base = import.meta.env.BASE_URL;
+
 const features = [
   {
     title: "Award-Based Engagement",
     description: "Users can earn aura and give Reddit-style awards to content they truly enjoy.",
-    image: "/placeholder.jpg",
+    image: `${base}placeholder.jpg`,
   },
   {
     title: "Aura Farming",
     description: "Engage meaningfully — like, comment, or upload to earn aura and increase your influence.",
-    image: "/placeholder.jpg",
+    image: `${base}placeholder.jpg`,
   },
   {
     title: "Video-Centered Feed",
     description: "A modern, scrollable feed similar to TikTok but powered by community-driven rewards.",
-    image: "/placeholder.jpg",
+    image: `${base}placeholder.jpg`,
   },
   {
     title: "Built for Android",
     description: "Whistle is built in Kotlin using Jetpack Compose, Firebase, and the MVVM architecture.",
-    image: "/placeholder.jpg",
+    image: `${base}placeholder.jpg`,
   },
 ];
 ---
@@ -36,7 +38,7 @@ const features = [
     <!-- Hero -->
     <section class="py-20 px-6 text-center">
       <div class="bg-white/80 backdrop-blur-md rounded-xl shadow-xl max-w-3xl mx-auto p-10 text-gray-800">
-        <img src="/logo.png" alt="Whistle Logo" class="w-24 h-24 mx-auto mb-6" />
+        <img src={`${base}logo.png`} alt="Whistle Logo" class="w-24 h-24 mx-auto mb-6" />
         <h1 class="text-5xl font-bold mb-4">Whistle</h1>
         <p class="text-lg max-w-xl mx-auto mb-6">
           An engaging video sharing app that combines TikTok-style feeds with Reddit-style community awards.
@@ -75,7 +77,7 @@ const features = [
     <section class="py-20 px-6 text-center text-gray-900">
       <div class="bg-white/80 backdrop-blur-md rounded-xl shadow-lg max-w-4xl mx-auto p-10">
         <h2 class="text-3xl font-bold mb-6 text-purple-800">Watch Whistle in Action</h2>
-        <video src="/demo.mp4" controls class="mx-auto rounded-xl shadow-lg w-full max-w-3xl" />
+        <video src={`${base}demo.mp4`} controls class="mx-auto rounded-xl shadow-lg w-full max-w-3xl" />
       </div>
     </section>
 
