@@ -5,26 +5,32 @@ const base = import.meta.env.BASE_URL;
 
 const features = [
   {
-    title: "Award-Based Engagement",
-    description: "Users can earn aura and give Reddit-style awards to content they truly enjoy.",
-    image: `${base}placeholder.jpg`,
+    title: "Endless Video Feed",
+    description: "Swipe vertically through short-form videos in a fast, smooth experience built natively for Android.",
+    image: `${base}feedDemo.mp4`,
   },
   {
-    title: "Aura Farming",
-    description: "Engage meaningfully — like, comment, or upload to earn aura and increase your influence.",
-    image: `${base}placeholder.jpg`,
+    title: "One-Tap Likes",
+    description: "Show appreciation instantly. Tap to like videos and help creators gain visibility.",
+    image: `${base}like_ui.jpg`,
   },
   {
-    title: "Video-Centered Feed",
-    description: "A modern, scrollable feed similar to TikTok but powered by community-driven rewards.",
-    image: `${base}placeholder.jpg`,
+    title: "Fast Video Uploads",
+    description: "Upload videos from your device with captions — no account switching, no hassle.",
+    image: `${base}upload_screen.jpg`,
   },
   {
-    title: "Built for Android",
-    description: "Whistle is built in Kotlin using Jetpack Compose, Firebase, and the MVVM architecture.",
-    image: `${base}placeholder.jpg`,
+    title: "Profile Customization",
+    description: "Set a profile picture and display name to make your account your own.",
+    image: `${base}profile_screen.jpg`,
+  },
+  {
+    title: "Built Natively for Android",
+    description: "Made in Kotlin using Jetpack Compose and Firebase, with a clean MVVM architecture.",
+    image: `${base}android_code.jpg`,
   },
 ];
+
 ---
 
 <html lang="en">
@@ -41,7 +47,7 @@ const features = [
         <img src={`${base}logo.png`} alt="Whistle Logo" class="w-24 h-24 mx-auto mb-6" />
         <h1 class="text-5xl font-bold mb-4">Whistle</h1>
         <p class="text-lg max-w-xl mx-auto mb-6">
-          An engaging video sharing app that combines TikTok-style feeds with Reddit-style community awards.
+          A fast, modern video sharing app with a smooth scrollable feed and quick likes.
         </p>
         <a href="#" class="bg-blue-600 text-white px-6 py-3 rounded-xl text-lg hover:bg-blue-700 transition">
           Download on Google Play
@@ -53,12 +59,32 @@ const features = [
     {features.map((feature) => (
       <section class="py-16 px-6 text-gray-900 text-center">
         <div class="bg-white/80 backdrop-blur-md rounded-xl shadow-lg max-w-4xl mx-auto p-10">
-          <img src={feature.image} alt={feature.title} class="rounded-xl shadow mb-6 w-full max-h-96 object-cover" />
+          {feature.image.endsWith(".mp4") ? (
+            <video
+  src={feature.image}
+  class="rounded-xl shadow mb-6 mx-auto h-[600px] aspect-[9/16] object-contain bg-black"
+  controls
+  autoplay
+  muted
+  loop
+
+
+/>
+
+
+          ) : (
+            <img
+              src={feature.image}
+              alt={feature.title}
+              class="rounded-xl shadow mb-6 w-full max-h-96 object-cover"
+            />
+          )}
           <h3 class="text-3xl font-bold mb-4 text-purple-800">{feature.title}</h3>
           <p class="text-lg max-w-2xl mx-auto">{feature.description}</p>
         </div>
       </section>
     ))}
+    
 
     <!-- How It Works -->
     <section class="py-20 px-6 text-gray-900">
