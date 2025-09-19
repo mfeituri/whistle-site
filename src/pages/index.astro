@@ -49,14 +49,63 @@ const features = [
         <p class="text-lg max-w-xl mx-auto mb-6">
           A fast, modern video sharing app with a smooth scrollable feed and quick likes.
         </p>
-        <a 
-  href="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" 
-  target="_blank" 
+ <!-- Google Play Button -->
+<a 
+  href="#"
+  id="rickroll-btn"
   class="bg-blue-600 text-white px-6 py-3 rounded-xl text-lg hover:bg-blue-700 transition"
-> 
-          Download on Google Play
-        </a>
-      </div>
+>
+  Download on Google Play
+</a>
+
+<!-- Modal -->
+<div 
+  id="rickroll-modal" 
+  class="fixed inset-0 bg-black/90 flex items-center justify-center hidden z-50"
+>
+  <iframe
+    id="rickroll-video"
+    src=""
+    frameborder="0"
+    allow="autoplay; encrypted-media"
+    allowfullscreen
+    class="w-full h-full max-w-4xl max-h-[80vh]"
+  ></iframe>
+  <button 
+    id="close-modal" 
+    class="absolute top-4 right-4 text-white text-3xl font-bold"
+  >
+    &times;
+  </button>
+</div>
+
+<script>
+  const btn = document.getElementById('rickroll-btn');
+  const modal = document.getElementById('rickroll-modal');
+  const iframe = document.getElementById('rickroll-video');
+  const close = document.getElementById('close-modal');
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    // Set the video URL with autoplay=1 and mute=0
+    iframe.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0";
+    modal.classList.remove('hidden');
+  });
+
+  close.addEventListener('click', () => {
+    modal.classList.add('hidden');
+    iframe.src = ""; // stop the video
+  });
+
+  // Optional: click outside iframe closes modal
+  modal.addEventListener('click', (e) => {
+    if(e.target === modal){
+      modal.classList.add('hidden');
+      iframe.src = "";
+    }
+  });
+</script>
+
     </section>
 
     <!-- Features (stacked) -->
