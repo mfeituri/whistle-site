@@ -49,10 +49,10 @@ const features = [
         <p class="text-lg max-w-xl mx-auto mb-6">
           A fast, modern video sharing app with a smooth scrollable feed and quick likes.
         </p>
- <!-- Google Play Button -->
+  <!-- Download Button -->
 <a 
-  href="#"
-  id="rickroll-btn"
+  href="#" 
+  id="play-btn" 
   class="bg-blue-600 text-white px-6 py-3 rounded-xl text-lg hover:bg-blue-700 transition"
 >
   Download on Google Play
@@ -60,48 +60,39 @@ const features = [
 
 <!-- Modal -->
 <div 
-  id="rickroll-modal" 
-  class="fixed inset-0 bg-black/90 flex items-center justify-center hidden z-50"
+  id="play-modal" 
+  class="fixed inset-0 bg-black/70 flex items-center justify-center hidden z-50"
 >
-  <iframe
-    id="rickroll-video"
-    src=""
-    frameborder="0"
-    allow="autoplay; encrypted-media"
-    allowfullscreen
-    class="w-full h-full max-w-4xl max-h-[80vh]"
-  ></iframe>
-  <button 
-    id="close-modal" 
-    class="absolute top-4 right-4 text-white text-3xl font-bold"
-  >
-    &times;
-  </button>
+  <div class="bg-white rounded-xl shadow-lg max-w-md p-8 text-center relative">
+    <h2 class="text-2xl font-bold mb-4 text-purple-800">Coming Soon!</h2>
+    <p class="mb-6 text-gray-700">Our app isn’t on Google Play yet, but stay tuned — big things are coming! 🚀</p>
+    <button 
+      id="close-play-modal" 
+      class="bg-blue-600 text-white px-6 py-2 rounded-xl hover:bg-blue-700 transition"
+    >
+      Got it!
+    </button>
+  </div>
 </div>
 
 <script>
-  const btn = document.getElementById('rickroll-btn');
-  const modal = document.getElementById('rickroll-modal');
-  const iframe = document.getElementById('rickroll-video');
-  const close = document.getElementById('close-modal');
+  const playBtn = document.getElementById('play-btn');
+  const playModal = document.getElementById('play-modal');
+  const closeModal = document.getElementById('close-play-modal');
 
-  btn.addEventListener('click', (e) => {
+  playBtn.addEventListener('click', (e) => {
     e.preventDefault();
-    // Set the video URL with autoplay=1 and mute=0
-    iframe.src = "https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0";
-    modal.classList.remove('hidden');
+    playModal.classList.remove('hidden');
   });
 
-  close.addEventListener('click', () => {
-    modal.classList.add('hidden');
-    iframe.src = ""; // stop the video
+  closeModal.addEventListener('click', () => {
+    playModal.classList.add('hidden');
   });
 
-  // Optional: click outside iframe closes modal
-  modal.addEventListener('click', (e) => {
-    if(e.target === modal){
-      modal.classList.add('hidden');
-      iframe.src = "";
+  // Optional: click outside modal to close
+  playModal.addEventListener('click', (e) => {
+    if(e.target === playModal){
+      playModal.classList.add('hidden');
     }
   });
 </script>
